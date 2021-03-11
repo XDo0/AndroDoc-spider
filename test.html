@@ -28,3 +28,104 @@ public static final int CERT_INPUT_RAW_X509</pre>
 
 
 </div>
+
+<div data-version-added="24">
+    <h3 class="api-name" id="MATCH_DIRECT_BOOT_UNAWARE" data-text="MATCH_DIRECT_BOOT_UNAWARE" role="presentation"><span class="devsite-heading" role="heading" aria-level="3">MATCH_DIRECT_BOOT_UNAWARE</span><button type="button" class="devsite-heading-link button-flat material-icons" aria-label="Copy link to this section: MATCH_DIRECT_BOOT_UNAWARE" data-title="Copy link to this section: MATCH_DIRECT_BOOT_UNAWARE" data-id="MATCH_DIRECT_BOOT_UNAWARE"></button></h3>
+    <div class="api-level">
+
+    Added in <a href="/guide/topics/manifest/uses-sdk-element#ApiLevels">API level 24</a>
+
+
+
+
+    </div>
+<devsite-code no-copy="" data-copy-event-label=""><div class="devsite-code-buttons-container" role="group" aria-label="Action buttons"><button type="button" class="gc-analytics-event material-icons devsite-icon-code-dark devsite-toggle-dark" data-category="Site-Wide Custom Events" data-label="Dark Code Toggle" track-type="exampleCode" track-name="darkCodeToggle" aria-label="Dark code theme" data-title="Dark code theme"></button><button type="button" class="gc-analytics-event material-icons devsite-icon-code-light devsite-toggle-light" data-category="Site-Wide Custom Events" data-label="Light Code Toggle" track-type="exampleCode" track-name="lightCodeToggle" aria-label="Light code theme" data-title="Light code theme"></button></div><pre class="api-signature no-pretty-print" translate="no" dir="ltr" is-upgraded="">public static final int MATCH_DIRECT_BOOT_UNAWARE</pre></devsite-code>
+
+
+
+
+  <p>Querying flag: match components which are direct boot <em>unaware</em> in
+ the returned info, regardless of the current user state.
+ </p><p>
+ When neither <code translate="no" dir="ltr"><a href="/reference/android/content/pm/PackageManager#MATCH_DIRECT_BOOT_AWARE">MATCH_DIRECT_BOOT_AWARE</a></code> nor
+ <code translate="no" dir="ltr"><a href="/reference/android/content/pm/PackageManager#MATCH_DIRECT_BOOT_UNAWARE">MATCH_DIRECT_BOOT_UNAWARE</a></code> are specified, the default behavior is
+ to match only runnable components based on the user state. For example,
+ when a user is started but credentials have not been presented yet, the
+ user is running "locked" and only <code translate="no" dir="ltr"><a href="/reference/android/content/pm/PackageManager#MATCH_DIRECT_BOOT_AWARE">MATCH_DIRECT_BOOT_AWARE</a></code>
+ components are returned. Once the user credentials have been presented,
+ the user is running "unlocked" and both <code translate="no" dir="ltr"><a href="/reference/android/content/pm/PackageManager#MATCH_DIRECT_BOOT_AWARE">MATCH_DIRECT_BOOT_AWARE</a></code>
+ and <code translate="no" dir="ltr"><a href="/reference/android/content/pm/PackageManager#MATCH_DIRECT_BOOT_UNAWARE">MATCH_DIRECT_BOOT_UNAWARE</a></code> components are returned.</p><p></p>
+  <div>
+      <p><b>See also:</b></p>
+      <ul class="nolist"><li><code translate="no" dir="ltr"><a href="/reference/android/os/UserManager#isUserUnlocked()">UserManager.isUserUnlocked()</a></code></li>
+      </ul>
+  </div>
+
+
+      <p>Constant Value:
+
+          262144
+          (0x00040000)
+
+
+</p></div>
+
+<div data-version-added="1">
+    <h3 class="api-name" id="resolveActivity(android.content.Intent,%20int)" data-text="resolveActivity" role="presentation"><span class="devsite-heading" role="heading" aria-level="3">resolveActivity</span><button type="button" class="devsite-heading-link button-flat material-icons" aria-label="Copy link to this section: resolveActivity" data-title="Copy link to this section: resolveActivity" data-id="resolveActivity(android.content.Intent,%20int)"></button></h3>
+    <div class="api-level">
+      <div>
+    Added in <a href="/guide/topics/manifest/uses-sdk-element#ApiLevels">API level 1</a>
+  </div>
+
+
+
+    </div>
+<devsite-code no-copy="" data-copy-event-label=""><div class="devsite-code-buttons-container" role="group" aria-label="Action buttons"><button type="button" class="gc-analytics-event material-icons devsite-icon-code-dark devsite-toggle-dark" data-category="Site-Wide Custom Events" data-label="Dark Code Toggle" track-type="exampleCode" track-name="darkCodeToggle" aria-label="Dark code theme" data-title="Dark code theme"></button><button type="button" class="gc-analytics-event material-icons devsite-icon-code-light devsite-toggle-light" data-category="Site-Wide Custom Events" data-label="Light Code Toggle" track-type="exampleCode" track-name="lightCodeToggle" aria-label="Light code theme" data-title="Light code theme"></button></div><pre class="api-signature no-pretty-print" translate="no" dir="ltr" is-upgraded="">public abstract <a href="/reference/android/content/pm/ResolveInfo">ResolveInfo</a> resolveActivity (<a href="/reference/android/content/Intent">Intent</a> intent,
+                int flags)</pre></devsite-code>
+
+
+
+
+  <p>Determine the best action to perform for a given Intent. This is how
+ <code translate="no" dir="ltr"><a href="/reference/android/content/Intent#resolveActivity(android.content.pm.PackageManager)">Intent#resolveActivity</a></code> finds an activity if a class has not been
+ explicitly specified.
+ </p><p>
+ <em>Note:</em> if using an implicit Intent (without an explicit
+ ComponentName specified), be sure to consider whether to set the
+ <code translate="no" dir="ltr"><a href="/reference/android/content/pm/PackageManager#MATCH_DEFAULT_ONLY">MATCH_DEFAULT_ONLY</a></code> only flag. You need to do so to resolve the
+ activity in the same way that
+ <code translate="no" dir="ltr"><a href="/reference/android/content/Context#startActivity(android.content.Intent)">Context.startActivity(Intent)</a></code> and
+ <code translate="no" dir="ltr"><a href="/reference/android/content/Intent#resolveActivity(android.content.pm.PackageManager)">Intent.resolveActivity(PackageManager)</a></code> do.
+ </p><p></p><p></p>
+    <div class="devsite-table-wrapper"><table class="responsive">
+    <tbody><tr><th colspan="2">Parameters</th></tr>
+      <tr>
+        <td><code translate="no" dir="ltr">intent</code></td>
+        <td width="100%">
+          <code translate="no" dir="ltr">Intent</code>: An intent containing all of the desired specification
+            (action, data, type, category, and/or component).
+ This value cannot be <code translate="no" dir="ltr">null</code>.<p></p></td>
+      </tr>
+      <tr>
+        <td><code translate="no" dir="ltr">flags</code></td>
+        <td width="100%">
+          <code translate="no" dir="ltr">int</code>: Additional option flags to modify the data returned. The
+            most important is <code translate="no" dir="ltr"><a href="/reference/android/content/pm/PackageManager#MATCH_DEFAULT_ONLY">MATCH_<wbr>DEFAULT_<wbr>ONLY</a></code>, to limit the
+            resolution to only those activities that support the
+            <code translate="no" dir="ltr"><a href="/reference/android/content/Intent#CATEGORY_DEFAULT">Intent.<wbr>CATEGORY_<wbr>DEFAULT</a></code>.
+ Value is either <code translate="no" dir="ltr">0</code> or a combination of <code translate="no" dir="ltr"><a href="/reference/android/content/pm/PackageManager#GET_META_DATA">GET_<wbr>META_<wbr>DATA</a></code>, <code translate="no" dir="ltr"><a href="/reference/android/content/pm/PackageManager#GET_RESOLVED_FILTER">GET_<wbr>RESOLVED_<wbr>FILTER</a></code>, <code translate="no" dir="ltr"><a href="/reference/android/content/pm/PackageManager#GET_SHARED_LIBRARY_FILES">GET_<wbr>SHARED_<wbr>LIBRARY_<wbr>FILES</a></code>, <code translate="no" dir="ltr"><a href="/reference/android/content/pm/PackageManager#MATCH_ALL">MATCH_<wbr>ALL</a></code>, android.content.pm.PackageManager.MATCH_DEBUG_TRIAGED_MISSING, <code translate="no" dir="ltr"><a href="/reference/android/content/pm/PackageManager#MATCH_DISABLED_COMPONENTS">MATCH_<wbr>DISABLED_<wbr>COMPONENTS</a></code>, <code translate="no" dir="ltr"><a href="/reference/android/content/pm/PackageManager#MATCH_DISABLED_UNTIL_USED_COMPONENTS">MATCH_<wbr>DISABLED_<wbr>UNTIL_<wbr>USED_<wbr>COMPONENTS</a></code>, <code translate="no" dir="ltr"><a href="/reference/android/content/pm/PackageManager#MATCH_DEFAULT_ONLY">MATCH_<wbr>DEFAULT_<wbr>ONLY</a></code>, <code translate="no" dir="ltr"><a href="/reference/android/content/pm/PackageManager#MATCH_DIRECT_BOOT_AUTO">MATCH_<wbr>DIRECT_<wbr>BOOT_<wbr>AUTO</a></code>, <code translate="no" dir="ltr"><a href="/reference/android/content/pm/PackageManager#MATCH_DIRECT_BOOT_AWARE">MATCH_<wbr>DIRECT_<wbr>BOOT_<wbr>AWARE</a></code>, <code translate="no" dir="ltr"><a href="/reference/android/content/pm/PackageManager#MATCH_DIRECT_BOOT_UNAWARE">MATCH_<wbr>DIRECT_<wbr>BOOT_<wbr>UNAWARE</a></code>, <code translate="no" dir="ltr"><a href="/reference/android/content/pm/PackageManager#MATCH_SYSTEM_ONLY">MATCH_<wbr>SYSTEM_<wbr>ONLY</a></code>, <code translate="no" dir="ltr"><a href="/reference/android/content/pm/PackageManager#MATCH_UNINSTALLED_PACKAGES">MATCH_<wbr>UNINSTALLED_<wbr>PACKAGES</a></code>, android.content.pm.PackageManager.MATCH_INSTANT, <code translate="no" dir="ltr"><a href="/reference/android/content/pm/PackageManager#GET_DISABLED_COMPONENTS">GET_<wbr>DISABLED_<wbr>COMPONENTS</a></code>, <code translate="no" dir="ltr"><a href="/reference/android/content/pm/PackageManager#GET_DISABLED_UNTIL_USED_COMPONENTS">GET_<wbr>DISABLED_<wbr>UNTIL_<wbr>USED_<wbr>COMPONENTS</a></code>, and <code translate="no" dir="ltr"><a href="/reference/android/content/pm/PackageManager#GET_UNINSTALLED_PACKAGES">GET_<wbr>UNINSTALLED_<wbr>PACKAGES</a></code><p></p></td>
+      </tr>
+    </tbody></table></div>
+    <div class="devsite-table-wrapper"><table class="responsive">
+      <tbody><tr><th colspan="2">Returns</th></tr>
+      <tr>
+        <td><code translate="no" dir="ltr"><a href="/reference/android/content/pm/ResolveInfo">ResolveInfo</a></code></td>
+        <td width="100%">Returns a ResolveInfo object containing the final activity intent
+         that was determined to be the best action. Returns null if no
+         matching activity was found. If multiple matching activities are
+         found and there is no default set, returns a ResolveInfo object
+         containing something else, such as the activity resolver.<p></p></td>
+      </tr>
+    </tbody></table></div>
+
+</div>
