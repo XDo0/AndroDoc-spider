@@ -6,3 +6,6 @@
 |                                  |                                                              |                                                              |       |
 |                                  |                                                              |                                                              |       |
 
+todo：
+
+每个文件夹以路径命名，分为method和constant的csv
