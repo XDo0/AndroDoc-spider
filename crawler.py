@@ -40,7 +40,37 @@ for tag in all_tags:
                 for data in iter(content):
                     for string in data.stripped_strings:
                         description += string
+                # 添加说明
                 addtwodimdict(METH,api_name,'meanings',description)
+                # 开始遍历表格
+                tables=tag.find_all('tbody')
+                for pm in tables:
+                    key=pm.tr.th.string
+                    row = ""
+                    for i in range(2,len(pm.contents)-1,2):
+                        a=pm.contents[i]
+                        para=pm.contents[i].text
+                        row+=str(para).replace('\n',' ')
+                        row+=";"
+                    addtwodimdict(METH,api_name,key,row)
+
+
+
+
+                    # for tr in pm.tr.next_siblings:
+                    #     row+=tr.td.string
+                    #     para_td=tr.td.next_sibling
+                    #     if para_td.string=="int":
+                    #         row+=":"
+                    #         for child in para_td.descendants:
+                    #             para_tag=child.find('a')
+                    #             row+=','.join(para_tag.stripped_strings)
+                    #     row += ";"
+                    #     addtwodimdict(METH,api_name,key,row)
+
+                    # METH[api_name][pm.th.string]
+
+
 
 
 
