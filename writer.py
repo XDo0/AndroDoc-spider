@@ -1,6 +1,7 @@
 import os
 import csv
 # https://developer.android.google.cn/reference/android/content/pm/PackageManager?hl=en
+# windows命名不能出现类似con的
 
 RES_DIR= "D:\mycode\py\crawldata"
 def get_dir(url):
@@ -56,9 +57,9 @@ def write_METH(METH,meth_file):
             temp=[]
             temp.append(api_name)
             is_key_in_METH(METH,api_name,'meanings',temp)
-            is_key_in_METH(METH,api_name,'parameters',temp)
-            is_key_in_METH(METH,api_name,'returns',temp)
-            is_key_in_METH(METH,api_name,'throws',temp)
+            is_key_in_METH(METH,api_name,'Parameters',temp)
+            is_key_in_METH(METH,api_name,'Returns',temp)
+            is_key_in_METH(METH,api_name,'Throws',temp)
             f.writerow(temp)
 
 

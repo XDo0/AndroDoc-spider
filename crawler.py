@@ -28,7 +28,10 @@ def get_one_page(url):
                 if api_name.isupper():#字母全为大写
                     content=tag.find_all('p')
                     # get constant value,at index 27
-                    addtwodimdict(CON,api_name,'value',(content[-1].string[27]))
+                    val=content[-1].text.replace('\n','')
+                    val=val.replace(' ','')
+                    val1=val[14:]
+                    addtwodimdict(CON,api_name,'value',val1)
                     # get all of descriptions
                     description=""
                     for data in iter(content[:-1]):
@@ -41,19 +44,22 @@ def get_one_page(url):
                     description = ""
                     for data in iter(content):
                         for string in data.stripped_strings:
-                            description += string
+                            description += str(string)
                     # 添加说明
                     addtwodimdict(METH,api_name,'meanings',description)
                     # 开始遍历表格
-                    tables=tag.find_all('tbody')
+                    tables=tag.find_all('table')
                     for pm in tables:
-                        key=pm.tr.th.string
+                        key=str(pm.tr.th.string)
                         row = ""
-                        for i in range(2,len(pm.contents)-1,2):
-                            a=pm.contents[i]
-                            para=pm.contents[i].text
-                            row+=str(para).replace('\n',' ')
-                            row+=";"
+                        for i in range(3,len(pm.contents)-1):
+                            para_temp=pm.contents[i]
+                            # print(type(para_temp))
+                            print(str(para_temp))
+                            if str(para_temp)!='\n':
+                                para=para_temp.text
+                                row+=para.replace('\n',' ')
+                                row+=";"
                         addtwodimdict(METH,api_name,key,row)
 
 
