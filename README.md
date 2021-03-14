@@ -9,3 +9,10 @@
 todo：
 
 每个文件夹以路径命名，分为method和constant的csv
+
+# tips
+
+* linux报错`No module named 'bs4'`需要pip3 install bs4
+* `bs4.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?`需要pip3 install lxml
+* 
+
