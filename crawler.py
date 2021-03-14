@@ -1,8 +1,6 @@
 from bs4 import BeautifulSoup
 from bs4 import SoupStrainer
 import requests
-import re
-import pandas
 import os
 
 def addtwodimdict(thedict, key_a, key_b, val):
@@ -55,7 +53,7 @@ def get_one_page(url):
                         for i in range(3,len(pm.contents)-1):
                             para_temp=pm.contents[i]
                             # print(type(para_temp))
-                            print(str(para_temp))
+
                             if str(para_temp)!='\n':
                                 para=para_temp.text
                                 row+=para.replace('\n',' ')

@@ -3,7 +3,7 @@ import csv
 # https://developer.android.google.cn/reference/android/content/pm/PackageManager?hl=en
 # windows命名不能出现类似con的
 
-RES_DIR= "D:\mycode\py\crawldata"
+RES_DIR= ".\crawldata"
 def get_dir(url):
     directory=url[:-6]
     directory=directory[46:]
